@@ -8,6 +8,7 @@ import {
 import { useState } from "react";
 import UpdateJobModal from "../modal/UpdateJobModal";
 import { useDeleteJobMutation } from "../../features/job/jobApi";
+import { toast } from "react-toastify";
 
 const JobCard = ({ job, refetch }) => {
   const [updateModalOpen, setUpdateModalOpen] = useState(false);
@@ -33,8 +34,18 @@ const JobCard = ({ job, refetch }) => {
   };
 
   return (
-    <Card style={{ marginBottom: "1rem", backgroundColor: "#f0f0f0" }}>
-      <CardContent>
+    <Card
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        marginBottom: "1rem",
+        backgroundColor: "#f0f0f0",
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <CardContent style={{ flexGrow: 1 }}>
         <Typography variant="h6" color="primary">
           {job.title}
         </Typography>
@@ -48,7 +59,7 @@ const JobCard = ({ job, refetch }) => {
           {job.location}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions style={{ justifyContent: "flex-end" }}>
         <Button
           onClick={() => handleUpdateModalOpen(job)}
           size="small"
@@ -62,6 +73,7 @@ const JobCard = ({ job, refetch }) => {
           size="small"
           variant="contained"
           color="primary"
+          disabled={isLoading}
         >
           Delete
         </Button>
@@ -70,6 +82,7 @@ const JobCard = ({ job, refetch }) => {
         job={selectedJob}
         open={updateModalOpen}
         onClose={handleUpdateModalClose}
+        refetchJobs={refetch}
       />
     </Card>
   );

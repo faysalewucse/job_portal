@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { Container, Typography, Grid, Card, CardContent } from "@mui/material";
-import { useGetJobsQuery } from "../api/jobApi";
+import { Container, Typography, Grid } from "@mui/material";
+import { useGetJobsQuery } from "../../features/job/jobApi";
+import JobCard from "../../components/card/JobCard";
 
 const AllJobs = () => {
-  const { data: jobs, error, isLoading, isError, refetch } = useGetJobsQuery();
+  const { data, error, isLoading, isError, refetch } = useGetJobsQuery();
 
   useEffect(() => {
     refetch();
-  }, []);
+  }, [refetch]);
 
   if (isLoading) return <Typography variant="h5">Loading...</Typography>;
   if (isError)
@@ -15,19 +16,20 @@ const AllJobs = () => {
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>
+      <Typography color={"white"} variant="h4" gutterBottom>
         All Jobs
       </Typography>
-      <Grid container spacing={3}>
-        {jobs.map((job) => (
-          <Grid item xs={12} sm={6} md={4} key={job.id}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">{job.title}</Typography>
-                <Typography variant="body1">{job.description}</Typography>
-                {/* Add more job details as needed */}
-              </CardContent>
-            </Card>
+      <Grid container spacing={3} style={{ marginTop: "10px" }}>
+        {data.payload.jobs.map((job) => (
+          <Grid
+            key={job._id}
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            style={{ display: "flex" }}
+          >
+            <JobCard job={job} refetch={refetch} />
           </Grid>
         ))}
       </Grid>

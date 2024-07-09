@@ -27,7 +27,7 @@
 <li class="has-line-data" data-line-start="31" data-line-end="34">Start the development server:<pre><code class="has-line-data" data-line-start="33" data-line-end="34" class="language-bash">npm run dev
 </code></pre>
 </li>
-<li class="has-line-data" data-line-start="34" data-line-end="36">Open your browser and navigate to <a href="http://localhost:6001">http://localhost:6001</a>.</li>
+<li class="has-line-data" data-line-start="34" data-line-end="36">Open your browser and navigate to <a href="http://localhost:6001">http://localhost:3000</a>.</li>
 </ol>
 <h2 class="code-line" data-line-start=36 data-line-end=37 ><a id="Job_Portal_API_Documentation_36"></a>Job Portal API Documentation</h2>
 <p class="has-line-data" data-line-start="38" data-line-end="39">This document provides a comprehensive overview of the API endpoints for the job portal application.</p>

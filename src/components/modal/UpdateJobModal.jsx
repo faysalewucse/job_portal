@@ -14,7 +14,7 @@ import {
   useUpdateJobMutation,
 } from "../../features/job/jobApi";
 
-const UpdateJobModal = ({ open, onClose, job }) => {
+const UpdateJobModal = ({ open, onClose, job, refetchJobs }) => {
   const [formValues, setFormValues] = useState({
     title: "",
     description: "",
@@ -52,6 +52,7 @@ const UpdateJobModal = ({ open, onClose, job }) => {
     if (response.data.success) {
       toast.success("Job Updated Successfully.");
       refetch();
+      refetchJobs();
       onClose();
     }
   };
