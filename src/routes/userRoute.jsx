@@ -1,17 +1,15 @@
 import {
   HOME_PATH,
+  JOBS_PATH,
   LOGIN_PATH,
   REGISTER_PATH,
-  EMAIL_VERIFICATION_RESULT,
-  VERIFY_PATH,
 } from "../helper/slugs";
 import Home from "../pages/home/Home.jsx";
 import Login from "../pages/common/Login";
 import Register from "../pages/common/Register";
-import Verify from "../pages/common/Verify";
-import EmailVerificationResult from "../pages/common/EmailVerificationResult.jsx";
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
+import AllJobs from "../pages/jobs/AllJobs.jsx";
 
 export const userRouter = [
   {
@@ -22,7 +20,14 @@ export const userRouter = [
       </PrivateRoute>
     ),
   },
-
+  {
+    path: JOBS_PATH,
+    element: (
+      <PrivateRoute>
+        <AllJobs />
+      </PrivateRoute>
+    ),
+  },
   {
     path: LOGIN_PATH,
     element: (
@@ -38,13 +43,5 @@ export const userRouter = [
         <Register />
       </PublicRoute>
     ),
-  },
-  {
-    path: VERIFY_PATH,
-    element: <Verify />,
-  },
-  {
-    path: `${EMAIL_VERIFICATION_RESULT}/:token`,
-    element: <EmailVerificationResult />,
   },
 ];
