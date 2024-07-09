@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.transition-300 {
+  @apply transition-all ease-linear duration-300;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.image-gallery {
+  width: 100%;
+  height: auto;
+}
+
+.image-gallery-slide img {
+  width: 100%;
+  height: 50%;
+  max-height: 80vh;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: center center;
+}
+
+.image-gallery-slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover !important;
+}
+
+.image-gallery-thumbnails img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+}
+
+.fullscreen .image-gallery-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain !important;
+}
+
+.ant-slider-track {
+  @apply bg-primary !important;
+}
+
+.ant-slider-handle::after {
+  @apply bg-white border-accent !important;
+  box-shadow: 0 0 0 2px #fbbf24 !important;
+}
+
+.custom-collapse .ant-collapse-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.custom-collapse .ant-collapse-content {
+  font-size: 16px;
+  border: none;
+}
+
+/* React Quill */
+.text-editor {
+  margin: 0 auto;
+  background-color: white;
+}
+.ql-editor {
+  min-height: 100px;
+}
